@@ -3,6 +3,8 @@
 ## Opis programu
 Program synchronizuje kontakty z programu Outlook z bazą danych PostgreSQL oraz odwrotnie. Dodatkowo, obsługuje listę zablokowanych adresów e-mail (blacklist), co pozwala na automatyczne usuwanie niepożądanych kontaktów zarówno z Outlooka, jak i z bazy danych. Program może także aktualizować notatki w kontaktach Outlooka, dodając informację o liczbie dni od ostatniego kontaktu.
 
+Inspiracją do tego projektu była częsta potrzeba synchronizacji danych kontaktowych na wielu urządzeniach – na przykład w przypadku posiadania kilku laptopów przez jednego użytkownika lub korzystania z kilku komputerów w małych firmach, które obsługują te same skrzynki pocztowe. Outlook jest popularnym narzędziem, jednak w sytuacjach, gdy jeden z pracowników aktualizuje dane kontaktowe, pozostali użytkownicy mogą nie mieć dostępu do zaktualizowanych informacji. Wiele firm nie korzysta z Office 365 ze względu na koszty, a także może nie posiadać dedykowanego oprogramowania CRM. W takich przypadkach baza kontaktów jest często przechowywana w Outlooku. Z tych właśnie powodów powstał ten projekt.
+
 ## Funkcje programu
 
 ### 1. `export_outlook_to_postgres()`
