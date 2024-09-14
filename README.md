@@ -61,3 +61,5 @@ Przechowuje informacje o zablokowanych kontaktach:
 3. **Sprawdzanie czarnej listy**: Program usuwa kontakty z Outlooka i bazy, których adresy są na czarnej liście.
 4. **Sprawdzanie korespondencji e-mail**: Program sprawdza skrzynkę odbiorczą i dodaje nowe kontakty do bazy, o ile nie są na czarnej liście.
 5. **Aktualizacja notatek w kontaktach**: Program dodaje informację o liczbie dni od ostatniego kontaktu do notatek w Outlooku.
+
+Dodatkowo pliki nie korzystające z bazy danych mogą służyć do jednorazowych importów/exportów oraz jako baza do zmian. 
