@@ -3,8 +3,6 @@ import psycopg2
 from datetime import datetime, timedelta
 import json, os
  
-
-
 # Połączenie z bazą danych PostgreSQL
 def connect_to_db():
     return psycopg2.connect(
@@ -139,9 +137,6 @@ def sync_postgres_to_outlook():
     cursor.close()  # Zamknięcie kursora po zakończeniu operacji
     conn.close()  # Zamknięcie połączenia z bazą danych
 
-
-
-
 def update_contact_notes_in_outlook():
     outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
     contacts_folder = outlook.GetDefaultFolder(10)  # 10 oznacza folder kontaktów
@@ -180,10 +175,6 @@ def update_contact_notes_in_outlook():
 
             print(f"Zaktualizowano notatki dla kontaktu {email}: {note_text}")
 
-
-
-
-
 # Pobranie listy zablokowanych adresów, domen oraz przedrostków z PostgreSQL
 def get_blacklist():
     conn = connect_to_db()
@@ -199,7 +190,6 @@ def get_blacklist():
     prefixes = [row[2] for row in blacklist if row[2] is not None]
     
     return emails, domains, prefixes
-
 
 # Dodanie kontaktów do Outlooka z uwzględnieniem blacklisty (e-maile, domeny, prefiksy)
 def add_contacts_to_outlook(recent_contacts):
@@ -255,8 +245,6 @@ def log_change_to_db(contact_id, change_type):
     cursor.close()  # Zamknięcie kursora
     conn.close()  # Zamknięcie połączenia
 
-
-
 # Usuwanie kontaktów z Outlooka i PostgreSQL na podstawie blacklisty
 def remove_blacklisted_contacts():
     emails, domains, prefixes = get_blacklist()  # Upewnij się, że przypisujemy 3 wartości
@@ -295,9 +283,6 @@ def remove_blacklisted_contacts():
 
     print("Brak kontaktów w tabeli 'contacts' do usunięcia.")
 
-
-
-# Funkcja rekurencyjna do przeszukiwania folderów
 # Funkcja rekurencyjna do przeszukiwania folderów
 def search_emails_in_folder(folder):
     recent_contacts = []
@@ -318,11 +303,6 @@ def search_emails_in_folder(folder):
         recent_contacts.extend(search_emails_in_folder(subfolder))  # Rekurencyjnie przeszukaj podfoldery
 
     return recent_contacts
-
-
-
-
-
 
 # Funkcja sprawdzająca wiadomości w skrzynce odbiorczej w ciągu ostatnich 6 miesięcy
 def check_recent_emails():
@@ -375,9 +355,6 @@ def save_recent_contacts_to_db(recent_contacts):
     conn.commit()
     cursor.close()
     conn.close()
-
-
-
 
 # Funkcja do wyszukiwania adresów nieaktualnych (brak kontaktu powyżej 12 miesięcy)
 def find_inactive_contacts():
